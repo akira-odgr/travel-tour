@@ -1,0 +1,19 @@
+/*
+ * メディアクエリ用mixin
+ */
+@use "functions" as *;
+
+$breakpoints: (
+    // 768px以上の幅
+    "md": "screen and (min-width: #{to-em(768px, 16px)})",
+    // 960px以上のモニタで適用
+    "lg": "screen and (min-width: #{to-em(960px, 16px)})",
+    // 1280px以上のモニタで適用
+    "xl": "screen and (min-width: #{to-em(1280px, 16px)})"
+) !default;
+
+@mixin mq($breakpoint: md) {
+    @media #{map-get($breakpoints, $breakpoint)} {
+        @content;
+    }
+}

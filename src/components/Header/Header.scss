@@ -1,0 +1,169 @@
+@use "../../globals/" as *;
+
+:root {
+    --primary-color: #ffa03f;
+    --primary-color-dark: #e08b37;
+    --text-dark: #020617;
+    --text-light: #1e293b;
+    --white: #fff;
+    --max-width: 1200px;
+}
+
+.header {
+    &__container {
+        display: grid;
+        gap: 2rem;
+
+        @include mq("md") {
+            isolation: isolate;
+            grid-template-columns: repeat(2, 1fr);
+            align-items: center;
+            padding-top: 2rem;
+        }
+    }
+
+    &__content {
+        h1 {
+            font-size: 4rem;
+            text-align: center;
+            color: var(--text-dark);
+            margin-bottom: 2rem;
+            line-height: 5rem;
+
+            span {
+                background-image: linear-gradient(
+                    to bottom,
+                    transparent 60%,
+                    var(--primary-color) 60%
+                );
+                background-repeat: no-repeat;
+                animation: marker 1s ease-in-out forwards;
+            }
+        }
+
+        .section__description {
+            text-align: center;
+        }
+
+        form {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            padding: 1rem;
+            margin-top: 4rem;
+            background-color: rgba(255, 255, 255, 0.3);
+            box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.1);
+            border-radius: 1rem;
+
+            @include mq("md") {
+                position: absolute;
+                bottom: 0;
+                width: max-content;
+                padding: 1.5rem;
+                margin: 0;
+                border-radius: 1.5rem;
+                backdrop-filter: blur(5px);
+                z-index: 10;
+            }
+
+            .input__group {
+                // flex-grow: 1; //子要素が親要素の余白をどれだけ広がるかを指定する。flex-grow: 1なら、余白を均等に分け合う。
+                // flex-shrink: 0; //子要素が親要素より大きい場合に、どれだけ縮むかを指定する。この要素は縮まない。
+                // flex-basis: 125px; //子要素の初期サイズを指定(主軸方向に適用)。この要素の基本サイズは125px。flex-growやflex-shrinkの値に応じて、親要素のサイズや余白に合わせて変動する
+                flex: 1 0 125px;
+                display: grid;
+                gap: 10px;
+
+                label {
+                    font-size: 1.1rem;
+                    font-weight: 500;
+                    color: var(--text-dark);
+                }
+
+                input {
+                    width: 100%;
+                    outline: none;
+                    border: none;
+                    font-size: 1rem;
+                    background-color: transparent;
+                    color: var(--text-light);
+
+                    &::placeholder {
+                        color: var(--text-light);
+                    }
+                }
+            }
+        }
+
+        .btn {
+            padding: 13px 15px;
+            font-size: 1.75rem;
+            border-radius: 1rem;
+        }
+
+        @include mq("md") {
+            position: relative;
+            padding-bottom: 10rem;
+
+            & :is(h1, .section__description) {
+                text-align: left;
+            }
+        }
+    }
+
+    &__image {
+        position: relative;
+        isolation: isolate;
+        display: grid;
+        gap: 1rem;
+        grid-template-columns: repeat(5, 1fr);
+        grid-auto-rows: 90px;
+
+        img {
+            height: 100%;
+            object-fit: cover;
+            border-radius: 1rem;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+
+            &:nth-of-type(1) {
+                // grid-row: 1 / 4;
+                // grid-column: 1 / 3;
+                grid-area: 1 / 1 / 4 / 3;
+            }
+
+            &:nth-of-type(2) {
+                // grid-row: 4 / 7;
+                // grid-column: 1 / 3;
+                grid-area: 4 / 1 / 7 / 3;
+            }
+
+            &:nth-of-type(3) {
+                // grid-row: 2 / 6;
+                // grid-column: 3 / 6;
+                grid-area: 2 / 3 / 6 / 6;
+            }
+
+            &:nth-of-type(4) {
+                position: absolute;
+                top: -2rem;
+                right: 5rem;
+                width: unset;
+                height: 10rem;
+                object-fit: contain;
+                aspect-ratio: 1;
+                box-shadow: none;
+            }
+        }
+    }
+}
+
+@keyframes marker {
+    from {
+        background-size: 0%;
+    }
+    to {
+        background-size: 100%;
+    }
+}
