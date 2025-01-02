@@ -80,7 +80,7 @@ export const Header = () => {
             <div className="header__image">
                 {headerImage.map((data) => {
                     const [ref, inView] = useInView({
-                        threshold: 0.3,
+                        threshold: 0.2,
                         triggerOnce: true,
                         initialInView: true,
                     });

@@ -1,0 +1,65 @@
+@use "../../globals/" as *;
+
+:root {
+    --primary-color: #ffa03f;
+    --primary-color-dark: #e08b37;
+    --text-dark: #020617;
+    --text-light: #1e293b;
+    --white: #fff;
+    --max-width: 1200px;
+}
+
+.choose {
+    &__container {
+        display: grid;
+        gap: 2rem;
+        overflow: hidden;
+
+        @include mq("md") {
+            grid-template-columns: repeat(2, 1fr);
+            align-items: center;
+        }
+    }
+
+    &__image {
+        img {
+            max-width: 475px;
+            margin-inline: auto;
+            border-top-left-radius: 100px;
+            border-bottom-right-radius: 100px;
+            box-shadow: 30px -30px 0 rgba(0, 0, 0, 0.1);
+        }
+    }
+
+    &__list {
+        display: grid;
+        gap: 3rem;
+        margin-top: 4rem;
+
+        li {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+
+            span {
+                display: inline-block;
+                padding: 6px 14px;
+                font-size: 2rem;
+                color: var(--primary-color);
+                border-radius: 10px;
+                box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.1);
+            }
+
+            h4 {
+                margin-bottom: 5px;
+                font-size: 1.2rem;
+                font-weight: 500;
+                color: var(--text-dark);
+            }
+
+            p {
+                color: var(--text-light);
+            }
+        }
+    }
+}
