@@ -1,8 +1,13 @@
+import { useInView } from "react-intersection-observer";
+import { motion } from "framer-motion";
+
 import { RiSearchLine } from "react-icons/ri";
 
 import { HeaderForm } from "./HeaderForm";
 import { headerImage } from "./headerData";
+
 import "./Header.scss";
+import { FadeLeft, FadeUp } from "../../utility/motionAnimation";
 
 // const headerImage = [
 //     {
@@ -41,24 +46,55 @@ export const Header = () => {
     return (
         <header className="section__container header__container">
             <dir className="header__content">
-                <h1>
+                <motion.h1
+                    variants={FadeUp(0.2)}
+                    initial="hidden"
+                    animate="visible"
+                >
                     <span>Let's</span> Create Memorable Journey
-                </h1>
-                <p className="section__description">
+                </motion.h1>
+                <motion.p
+                    variants={FadeUp(0.4)}
+                    initial="hidden"
+                    animate="visible"
+                    transition="transition"
+                    className="section__description"
+                >
                     Embark on an unforgettable adventure with us! Discover
                     breathtaking destinations,create lasting memories,and make
                     every journey remarkable.
-                </p>
-                <form action="/">
+                </motion.p>
+                <motion.form
+                    action="/"
+                    variants={FadeUp(0.6)}
+                    initial="hidden"
+                    animate="visible"
+                    transition="transition"
+                >
                     <HeaderForm formData={formData} />
                     <button className="btn">
                         <RiSearchLine />
                     </button>
-                </form>
+                </motion.form>
             </dir>
             <div className="header__image">
                 {headerImage.map((data) => {
-                    return <img key={data.image} src={data.image} alt="" />;
+                    const [ref, inView] = useInView({
+                        threshold: 0.3,
+                        triggerOnce: true,
+                        initialInView: true,
+                    });
+                    return (
+                        <motion.img
+                            ref={ref}
+                            variants={FadeLeft(data.delay)}
+                            initial="hidden"
+                            animate={inView ? "visible" : "hidden"}
+                            key={data.image}
+                            src={data.image}
+                            alt=""
+                        />
+                    );
                 })}
             </div>
         </header>

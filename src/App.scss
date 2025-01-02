@@ -1,3 +1,4 @@
+@use "./globals/" as *;
 @import url("https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap");
 
 :root {
@@ -47,7 +48,7 @@ ul {
 
     &__subheader {
         margin-bottom: 10px;
-        font-size: 1.2rem;
+        font-size: fluid-text(17.6px, 19.2px);
         font-weight: 500;
         color: var(--primary-color);
     }
@@ -60,6 +61,7 @@ ul {
     }
 
     &__description {
+        font-size: fluid-text(14px, 16px);
         color: var(--text-light);
         line-height: 1.75rem;
     }

@@ -7,17 +7,21 @@ export const headerImage = [
     {
         image: headerImg1,
         alt: "header-1",
+        delay: 0.3,
     },
     {
         image: headerImg2,
         alt: "header-2",
+        delay: 0.5,
     },
     {
         image: headerImg3,
         alt: "header-3",
+        delay: 0.7,
     },
     {
         image: headerBg,
         alt: "header-bg",
+        delay: 0.9,
     },
 ];
