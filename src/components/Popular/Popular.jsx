@@ -1,3 +1,6 @@
+import { useInView } from "react-intersection-observer";
+import { motion } from "framer-motion";
+
 import { popularData } from "./popularData";
 import popularBg from "../../assets/images/bg.png";
 
@@ -16,15 +19,40 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "./Popular.scss";
+import { FadeUp } from "../../utility/motionAnimation";
 
 export const Popular = () => {
+    const [refHeader, inViewHeader] = useInView({
+        threshold: 0.5,
+        triggerOnce: true,
+    });
+
+    const [refSubheader, inViewSubheader] = useInView({
+        threshold: 0.5,
+        triggerOnce: true,
+    });
+
     return (
         <section className="section__container popular__container">
             <img src={popularBg} alt="bg" className="popular__bg" />
-            <p className="section__subheader">Famous Destinations</p>
-            <h2 className="section__header">
+            <motion.p
+                ref={refSubheader}
+                variants={FadeUp()}
+                initial="hidden"
+                animate={inViewSubheader ? "visible" : "hidden"}
+                className="section__subheader"
+            >
+                Famous Destinations
+            </motion.p>
+            <motion.h2
+                ref={refHeader}
+                variants={FadeUp(0.3)}
+                initial="hidden"
+                animate={inViewHeader ? "visible" : "hidden"}
+                className="section__header"
+            >
                 Our Popular <span>Destinations</span>
-            </h2>
+            </motion.h2>
             <Swiper
                 modules={[Navigation, Pagination, A11y, Autoplay]}
                 spaceBetween={0}

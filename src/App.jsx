@@ -3,6 +3,7 @@ import "./App.scss";
 import { Header } from "./components/Header/Header";
 import { Choose } from "./components/Choose/Choose";
 import { Popular } from "./components/Popular/Popular";
+import { Explore } from "./components/Explore/Explore";
 
 export const App = () => {
     return (
@@ -11,6 +12,7 @@ export const App = () => {
             <Header />
             <Choose />
             <Popular />
+            <Explore />
         </>
     );
 };

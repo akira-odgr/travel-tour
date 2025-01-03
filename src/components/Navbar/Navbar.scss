@@ -115,7 +115,8 @@
         flex-direction: column;
         gap: 2rem;
         padding: 2rem;
-        background-color: var(--primary-color);
+        background-color: rgba(255, 160, 63, 0.5);
+        backdrop-filter: blur(20px);
         transition: 0.5s;
 
         z-index: -1;
