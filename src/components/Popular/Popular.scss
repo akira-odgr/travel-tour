@@ -1,0 +1,102 @@
+@use "../../globals/" as *;
+
+:root {
+    --primary-color: #ffa03f;
+    --primary-color-dark: #e08b37;
+    --text-dark: #020617;
+    --text-light: #1e293b;
+    --white: #fff;
+    --max-width: 1200px;
+}
+
+.swiper {
+    width: 100%;
+    padding-block: 4rem;
+
+    &__slide {
+        min-width: 375px;
+    }
+}
+
+.popular {
+    &__container {
+        position: relative;
+        isolation: isolate;
+        padding-bottom: 1rem;
+    }
+
+    &__bg {
+        position: absolute;
+        left: 75%;
+        top: 0;
+        width: unset;
+        height: 12rem;
+        aspect-ratio: 1;
+        object-fit: contain;
+        transform: translate(-65%, -50%) rotate(-135deg);
+    }
+
+    &__card {
+        margin-inline: 1rem;
+        overflow: hidden;
+        border-radius: 3rem;
+        box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    &__content {
+        position: relative;
+        isolation: isolate;
+        padding-block: 3rem 2rem;
+        padding-inline: 2rem;
+
+        &__rating {
+            position: absolute;
+            top: 0;
+            left: 2rem;
+            padding: 0.5rem 1rem;
+            transform: translateY(-50%);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--text-light);
+            background-color: var(--white);
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+            border-radius: 2rem;
+
+            .icon {
+                font-size: 1.2rem;
+                color: goldenrod;
+            }
+        }
+
+        h4 {
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        p {
+            margin-bottom: 1rem;
+            font-weight: 500;
+            color: var(--text-light);
+
+            span {
+                color: var(--primary-color);
+            }
+        }
+
+        &__footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            div {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                color: var(--text-light);
+            }
+        }
+    }
+}

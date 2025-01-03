@@ -87,7 +87,7 @@ export const Choose = () => {
     });
 
     const [refList, inViewList] = useInView({
-        threshold: 0.3,
+        threshold: 0.2,
         triggerOnce: true,
     });
 
@@ -121,11 +121,10 @@ export const Choose = () => {
                 >
                     Plan Your Trip <span>With Us</span>
                 </motion.h2>
-                <ul className="choose__list">
+                <ul ref={refList} className="choose__list">
                     {chooseList.map((data, index) => (
                         <motion.li
                             key={index}
-                            ref={refList}
                             variants={FadeUp(0.3 + index * 0.1)}
                             initial="hidden"
                             animate={inViewList ? "visible" : "hidden"}
