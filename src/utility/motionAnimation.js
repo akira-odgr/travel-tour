@@ -48,3 +48,19 @@ export const FadeLeft = (delay) => {
         },
     };
 };
+
+export const FadeIn = (delay) => {
+    return {
+        hidden: {
+            opacity: 0,
+        },
+        visible: {
+            opacity: 1,
+
+            transition: {
+                duration: 0.8,
+                delay: delay,
+            },
+        },
+    };
+};

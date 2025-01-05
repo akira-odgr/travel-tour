@@ -58,6 +58,10 @@ ul {
         font-weight: 600;
         color: var(--text-dark);
         line-height: 3.25rem;
+
+        span {
+            color: var(--primary-color);
+        }
     }
 
     &__description {
