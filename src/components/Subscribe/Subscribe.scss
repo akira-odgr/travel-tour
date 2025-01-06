@@ -1,0 +1,45 @@
+@use "../../globals/" as *;
+
+:root {
+    --primary-color: #ffa03f;
+    --primary-color-dark: #e08b37;
+    --text-dark: #020617;
+    --text-light: #1e293b;
+    --white: #fff;
+    --max-width: 1200px;
+}
+
+.subscribe {
+    &__container {
+        & :is(.section__header, .section__desc) {
+            max-width: 600px;
+            margin-inline: auto;
+            margin-block: 2rem;
+            text-align: center;
+        }
+
+        form {
+            display: flex;
+            align-items: center;
+            max-width: 500px;
+            margin-inline: auto;
+            padding: 5px;
+            background-color: rgba(255, 160, 63, 0.5);
+            border-radius: 10px;
+
+            input {
+                width: 100%;
+                outline: none;
+                border: none;
+                padding-inline: 1rem;
+                font-size: 1rem;
+                color: var(--white);
+                background-color: transparent;
+
+                &::placeholder {
+                    color: var(--white);
+                }
+            }
+        }
+    }
+}

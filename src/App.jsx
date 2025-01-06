@@ -5,6 +5,8 @@ import { Choose } from "./components/Choose/Choose";
 import { Popular } from "./components/Popular/Popular";
 import { Explore } from "./components/Explore/Explore";
 import { Client } from "./components/Client/Client";
+import { Footer } from "./components/Footer/Footer";
+import { Subscribe } from "./components/Subscribe/Subscribe";
 
 export const App = () => {
     return (
@@ -15,6 +17,8 @@ export const App = () => {
             <Popular />
             <Explore />
             <Client />
+            <Subscribe />
+            <Footer />
         </>
     );
 };
